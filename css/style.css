@@ -97,9 +97,9 @@ h3 {
     text-align: center;
 }
 
-/* Navegation */
+/* Navigation */
 
-.navegation {
+.navigation {
     background-color: var(--primaryDark);
     padding: 1rem 0;
     display: flex;
@@ -107,19 +107,19 @@ h3 {
     /* gap: 2rem; / Forma de separar  */
 }
 
-.navegation--link {
+.navigation--link {
     font-family: var(--mainFont);
     color: var(--white);
     font-size: 2.2rem;
     margin-right: 2rem;
 }
 
-.navegation--link:last-of-type {
+.navigation--link:last-of-type {
     margin-right: 0;
 }
 
-.navegation--link--active,
-.navegation--link:hover {
+.navigation--link--active,
+.navigation--link:hover {
     color: var(--secundary);
 }
 
@@ -174,11 +174,11 @@ h3 {
 
 .graphic--tShirt {
     grid-row: 2/3;
-    background-image: url(/FrontEndStore_inicio/img/grafico1.jpg);
+    background-image: url(/img/grafico1.jpg);
 }
 
 .graphic--node {
-    background-image: url(/FrontEndStore_inicio/img/grafico2.jpg);
+    background-image: url(/img/grafico2.jpg);
     grid-row: 8/9;
 }
 
