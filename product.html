@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrontEnd Store</title>
+    <script src="js/product.js" defer></script>
+    <script src="js/modal.js" defer></script>
     <link rel="stylesheet" class="navegacion--enlace" href="/css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,36 +27,40 @@
     <nav class="navigation">
         <a class="navigation--link navigation--link--active" href="index.html">Store</a>
         <a class="navigation--link" href="us.html">About us</a>
+        <a class="navigation--link modal-link" href="#">🛍️</a>
+        <div id="modal-container"></div>
     </nav>
 
     <main class="container">
-        <h1>React JS</h1>
+        <h1 id="product-description"></h1>
 
         <div class="tShirt">
-            <img src="img/3.jpg" alt="image-tShirt">
+            <img class="product__image" src="img/3.jpg" alt="image-tShirt">
 
             <div class="tShirt__content">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores odit corrupti commodi
+                <p class="product-description-text">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident asperiores odit corrupti commodi
                     eveniet sit eius fuga deleniti quod aliquam natus autem, voluptatibus dolor qui quidem ipsam ipsa
                     voluptas cupiditate excepturi id dolores neque! Deserunt facilis doloribus minima.
                 </p>
+                <div class="form__espace " type="number" >$<span class="price"></span></div>
 
                 <form class="form">
-                    <select class="form__espace">
-                        <option disabled selected>-- Size</option>
-                        <option>Small</option>
-                        <option>Medium</option>
-                        <option>Large</option>
+                    <select class="form__espace size" required>
+                        <option value="" disabled selected>-- Size</option>
+                        <option value="small">S</option>
+                        <option value="medium">M</option>
+                        <option value="large">L</option>
                     </select>
-                    <input class="form__espace" type="number" placeholder="Quantify" min="1">
-                    <input class="form__submit" type="submit" value="Add to Cart">
+                    <input class="form__espace quantity" type="number" placeholder="Quantity" min="1" value="1" required>
+                    <button id="form__submit" type="submit" >Add to Cart</button>
                 </form>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <p class="footer__text">Front End Store. All rights reserved 2022.</p>
+        <p class="footer__text">Front End Store. All rights reserved 2025.</p>
     </footer>
 
 </body>

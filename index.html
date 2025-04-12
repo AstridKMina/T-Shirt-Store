@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrontEnd Store</title>
+    <script src="js/index.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/product.js" defer></script>
     <link rel="stylesheet" class="navigation--link" href="/css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,149 +24,29 @@
         </a>
     </header>
 
-    <nav class="navigation">
+    <nav class="navigation ">
         <a class="navigation--link navigation--link--active" href="index.html">Store</a>
         <a class="navigation--link" href="us.html">About us</a>
+        <a class="navigation--link modal-link" href="#">🛍️</a>
+        <div id="modal-container"></div>
+    </nav>
+    <nav class="navigation-responsive ">
+        <button class="navigation--button">
+            🍔
+        </button>
+        <div class="navigation--list"></div>
     </nav>
 
     <main class="container">
         <h1>Our products</h1>
 
         <div class="grid">
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/1.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">VueJS</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/2.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">AngularJS</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/3.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">ReactJs</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/4.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">Redux</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/5.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">NodeJS</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/6.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">sass</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/7.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">html</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/8.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">GitHub</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/9.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">BulmaCSS</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/10.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">TypeScript</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/11.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">Drupal</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/12.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">JavaScript</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/13.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">GraphQL</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-            <div class="product">
-                <a href="product.html">
-                    <img class="product__image" src="img/14.jpg" alt="image tshirt">
-                    <div class="product__information">
-                        <p class="product__name">WordPress</p>
-                        <p class="product__price">$25</p>
-                    </div>
-                </a>
-            </div><!--.product-->
-
             <div class="graphic graphic--tShirt"></div>
             <div class="graphic graphic--node"></div>
         </div>
     </main>
-
     <footer class="footer">
-        <p class="footer__text" >Front End Store. All rights reserved 2022.</p>
+        <p class="footer__text">Front End Store. All rights reserved 2022.</p>
     </footer>
 
 </body>

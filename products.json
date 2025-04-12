@@ -1,0 +1,114 @@
+[
+    {
+      "id": 1,
+      "name": "VueJS",
+      "price": "$25",
+      "image": "img/1.jpg",
+      "link": "product.html",
+      "description": "Embrace the elegance of modern front-end development with this VueJS t-shirt. Designed for developers who value simplicity, performance, and reactive magic, this shirt lets you represent the framework that’s approachable, versatile, and beloved by many. Whether you’re building a dashboard, a PWA, or just experimenting with components, do it in style with Vue on your chest."
+    },
+    {
+      "id": 2,
+      "name": "AngularJS",
+      "price": "$25",
+      "image": "img/2.jpg",
+      "link": "product.html",
+      "description": "Built for structure, powered by TypeScript, and loved for its complete toolkit — AngularJS developers, this one’s for you. This shirt honors the opinionated framework that brought MVC architecture to the front-end. If you live for components, services, and dependency injection, wear your Angular pride like a badge of honor."
+    },
+    {
+      "id": 3,
+      "name": "ReactJs",
+      "price": "$25",
+      "image": "img/3.jpg",
+      "link": "product.html",
+      "description": "This ReactJS t-shirt is more than just apparel — it's a statement. A statement that you thrive in the virtual DOM, live in reusable components, and dream in hooks. Whether you're crafting UIs or battling state logic, this tee has your back — literally. Clean, modern, and declarative — just like the code you write."
+    },
+    {
+      "id": 4,
+      "name": "Redux",
+      "price": "$25",
+      "image": "img/4.jpg",
+      "link": "product.html",
+      "description": "Centralized state management, predictability, and time travel debugging — Redux has given developers powerful tools to tame complexity. This shirt is for those who understand the reducer lifecycle better than their own. Functional programming fans, wear your state and actions with pride."
+    },
+    {
+      "id": 5,
+      "name": "NodeJS",
+      "price": "$25",
+      "image": "img/5.jpg",
+      "link": "product.html",
+      "description": "Fast, event-driven, and built for scalable applications, NodeJS has revolutionized backend JavaScript. If you’ve ever spun up an Express server or connected a database in milliseconds, this shirt belongs in your wardrobe. Ideal for full-stack developers, JavaScript purists, and tech rebels alike."
+    },
+    {
+      "id": 6,
+      "name": "Sass",
+      "price": "$25",
+      "image": "img/6.jpg",
+      "link": "product.html",
+      "description": "Add some flair to your outfit — just like Sass adds power to CSS. This t-shirt is for developers who love variables, mixins, and the beauty of nesting. Clean, maintainable styles deserve a clean, stylish shirt. Be bold, be beautiful, be preprocessed."
+    },
+    {
+      "id": 7,
+      "name": "HTML",
+      "price": "$25",
+      "image": "img/7.jpg",
+      "link": "product.html",
+      "description": "This shirt is a tribute to the building blocks of the web. HTML is where it all begins — your first `<h1>`, your first `<div>`, your first website. Whether you're a seasoned coder or just starting out, this t-shirt is a reminder of the powerful simplicity behind every great page."
+    },
+    {
+      "id": 8,
+      "name": "GitHub",
+      "price": "$25",
+      "image": "img/8.jpg",
+      "link": "product.html",
+      "description": "More than just a platform, GitHub is where innovation lives. This t-shirt is for every developer who’s ever pushed a commit, resolved a merge conflict, or explored an open source repo at 2 AM. Comfortable, clean, and collaborative — like great code should be."
+    },
+    {
+      "id": 9,
+      "name": "BulmaCSS",
+      "price": "$25",
+      "image": "img/9.jpg",
+      "link": "product.html",
+      "description": "For developers who love clean design with minimal effort, this BulmaCSS shirt celebrates semantic classes and responsive grids. Lightweight, modern, and effortlessly stylish — just like your favorite CSS framework. Put this on and let the elegance flow."
+    },
+    {
+      "id": 10,
+      "name": "TypeScript",
+      "price": "$25",
+      "image": "img/10.jpg",
+      "link": "product.html",
+      "description": "TypeScript: because code is better when it’s predictable. This shirt is for devs who like their variables strongly typed and their bugs caught early. Built for those who take pride in scalability and readability, and who refuse to compromise between speed and safety."
+    },
+    {
+      "id": 11,
+      "name": "Drupal",
+      "price": "$25",
+      "image": "img/11.jpg",
+      "link": "product.html",
+      "description": "This Drupal t-shirt celebrates over two decades of robust, scalable content management. Perfect for those who thrive on modules, themes, and the endless customization of enterprise-level websites. Worn by developers who shape the digital world — one content type at a time."
+    },
+    {
+      "id": 12,
+      "name": "JavaScript",
+      "price": "$25",
+      "image": "img/12.jpg",
+      "link": "product.html",
+      "description": "The language that powers the web, and your favorite t-shirt. JavaScript is everywhere, and now it’s on you. Whether you’re into vanilla JS or the latest frameworks, this shirt honors the flexible, dynamic, and sometimes chaotic heart of modern web development."
+    },
+    {
+      "id": 13,
+      "name": "GraphQL",
+      "price": "$25",
+      "image": "img/13.jpg",
+      "link": "product.html",
+      "description": "Efficient, elegant, and precise — GraphQL is the API revolution we’ve been waiting for. If you love writing queries that do exactly what you want (and nothing more), this shirt is your new favorite uniform. A developer’s dream, now wearable."
+    },
+    {
+      "id": 14,
+      "name": "WordPress",
+      "price": "$25",
+      "image": "img/14.jpg",
+      "link": "product.html",
+      "description": "From simple blogs to enterprise websites, WordPress powers 40% of the internet — and now, your wardrobe. This t-shirt is perfect for developers, designers, and content creators who keep the web running with themes, plugins, and a love for open-source publishing."
+    }
+  ]
