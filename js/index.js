@@ -68,7 +68,7 @@ burguer_navigation.addEventListener("click", () => {
 <ul>
   <li><a class="navigation--link navigation--link--active" href="index.html">Store</a></li>
   <li><a class="navigation--link navigation--link--active" href="us.html">About us</a></li>
-  <li><a class="navigation--link modal-link navigation--link--active" href="#">Shopping cart</a></li>
+  <li><a class="navigation--link modal-link navigation--link--active" href="cart.html">Shopping cart</a></li>
 </ul>`
 
         navigationRes.style.display = "block"
@@ -77,7 +77,7 @@ burguer_navigation.addEventListener("click", () => {
     }
 
     window.addEventListener("click", (event) => {
-        if (event.target === modal) {
+        if (event.target === navigationRes) {
             navigationRes.style.display = "none";
         }
 

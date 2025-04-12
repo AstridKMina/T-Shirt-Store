@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="price">${cart_item.price}</td>
                    <td class="edit-div">
                 <button class="add-button">+</button>
-                <button class="edit-button" disabled>🖋️</button>
+                <button class="edit-button" disabled><i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="reduce-button">-</button>
-                <button class="delete-div">🗑️</button>
+                <button class="delete-div"><i class="fa-solid fa-trash"></i></button>
             </td>
       `;
 

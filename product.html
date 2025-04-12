@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrontEnd Store</title>
     <script src="js/product.js" defer></script>
+    <script src="js/index.js" defer></script>
     <script src="js/modal.js" defer></script>
     <link rel="stylesheet" class="navegacion--enlace" href="/css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&family=Shadows+Into+Light&display=swap"
         rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -27,8 +30,14 @@
     <nav class="navigation">
         <a class="navigation--link navigation--link--active" href="index.html">Store</a>
         <a class="navigation--link" href="us.html">About us</a>
-        <a class="navigation--link modal-link" href="#">🛍️</a>
+        <a class="navigation--link modal-link" href="#"><i class="fa-solid fa-bag-shopping"></i></a>
         <div id="modal-container"></div>
+    </nav>
+    <nav class="navigation-responsive ">
+        <button class="navigation--button">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="navigation--list"></div>
     </nav>
 
     <main class="container">

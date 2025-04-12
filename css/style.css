@@ -1,10 +1,10 @@
 :root {
-    --primary: #9C27B0;
-    --primaryDark: #89119D;
+    --primary: #eae0ec;
+    --primaryDark: #0c020c;
     --secundary: #ffce00;
     --secundaryDark: rgb(233, 287, 2);
-    --white: #fff;
-    --black: #000;
+    --white: #447581;
+    --black: #e0d4d4;
     --mainFont: 'Josefin Sans', 'candara';
 }
 
@@ -351,6 +351,20 @@ h3 {
 #form__submit:hover {
     cursor: pointer;
     background-color: var(--secundaryDark);
+}
+
+/* CartPage */
+
+.cart_shopping {
+    background-color: #fff;
+    padding: 6rem;
+    text-align: center;
+}
+
+.pay--button {
+    margin: 2rem;
+    background-color: #e9c4c4;
+    padding: 0 2rem;
 }
 
 /* Responsive Improvements */
