@@ -303,6 +303,10 @@ h3 {
     gap: 1rem;
 }
 
+.us-icons {
+    background-color: rgb(198, 238, 225);
+}
+
 @media (min-width: 765px) {
     .purchases__blocks {
         grid-template-columns: 1fr 1fr 1fr 1fr;
