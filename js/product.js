@@ -23,6 +23,7 @@ const loadProductDetails = async () => {
     const products = await res.json();
 
     const product = products.find(p => p.id === parseInt(id));
+    // localStorage.removeItem("items")
 
     if (product) {
        
@@ -59,7 +60,7 @@ const cartItems = storedItems ? JSON.parse(storedItems) : [];
 const handleCart = (event) => {
     event.preventDefault();
 
-    const quantity = document.querySelector(".quantity")?.value;  // Asegúrate de obtener el valor de la cantidad
+    const quantity = Number(document.querySelector(".quantity")?.value);  // Asegúrate de obtener el valor de la cantidad
     const price = Number(document.querySelector(".price")?.innerText); // Asegúrate de obtener el precio correctamente
     
 

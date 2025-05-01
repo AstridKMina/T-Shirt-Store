@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/cart.js" defer></script>
-    <script src="js/index.js" defer></script>
-    <title>Document</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front End Store - Shopping Cart</title>
 
+  <!-- Scripts -->
+  <script src="js/cart.js" defer></script>
+  <script src="js/index.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="header">
-        <a href="index.html">
-            <img class="header__logo" src="/img/logo.png" alt="Logotipo">
-        </a>
-    </header>
+  <header class="header" role="banner">
+    <a href="index.html" aria-label="Go to homepage">
+      <img class="header__logo" src="/img/logo.png" alt="Front End Store Logo" />
+    </a>
+  </header>
 
-    <nav class="navigation">
-        <a class="navigation--link navigation--link--active" href="index.html">Store</a>
-        <a class="navigation--link" href="us.html">About us</a>
-    </nav>
-    <nav class="navigation-responsive ">
-        <button class="navigation--button">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="navigation--list"></div>
-    </nav>
-    <div class="cart_shopping">
-        <h3>Products</h3>
-        <div class="cart-content">
-            <table id="cart-table">
-                <thead>
-                  <tr>
-                    <th>Description</th>
-                    <th>Quantity</th>
-                    <th>size</th>
-                    <th>price</th>
-                  </tr>
-                </thead>
-                <tbody>          
-                </tbody>
-              </table>
-        </div>
-        <div>
-          <h3>Total : $<span class="cart__total"></span></h3>
-        </div>
-       <button class="pay--button"><p>PAY</p></button>
-    </div>
-    <footer class="footer">
-        <p class="footer__text">Front End Store. All rights reserved 2025.</p>
-    </footer>
+  <nav class="navigation" aria-label="Main navigation">
+    <a class="navigation--link navigation--link--active" href="index.html">Store</a>
+    <a class="navigation--link" href="us.html">About Us</a>
+  </nav>
+
+  <nav class="navigation-responsive" aria-label="Responsive menu">
+    <button class="navigation--button" aria-label="Open menu">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="navigation--list" role="menu" aria-hidden="true"></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="cart_shopping" aria-labelledby="products-heading">
+      <h2 id="products-heading">Products</h2>
+
+      <div class="cart-content">
+        <table id="cart-table">
+          <thead>
+            <tr>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Size</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic content goes here -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cart-total">
+        <h3>Total: $<span class="cart__total" aria-live="polite"></span></h3>
+      </div>
+
+      <button class="pay--button" aria-label="Proceed to payment">
+        <span>Pay</span>
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p class="footer__text">Front End Store. All rights reserved © 2025.</p>
+  </footer>
 </body>
 </html>

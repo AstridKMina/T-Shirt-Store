@@ -4,6 +4,8 @@ console.log("a ver que me da el local:", JSON.parse(shopping_items))
 const cart_items = JSON.parse(shopping_items)
 
 const tBody = document.querySelector("#cart-table tbody");
+const payButton = document.querySelector(".pay--button");
+
 
 
 
@@ -24,7 +26,7 @@ if (cart_items) {
         <button class="add-button">+</button>
         <button class="edit-button" disabled><i class="fa-solid fa-pen-to-square"></i></button>
         <button class="reduce-button">-</button>
-        <button class="delete-div"><i class="fa-solid fa-trash"></i></button>
+        <button class="delete-item"><i class="fa-solid fa-trash"></i></button>
     </td>
 `;
 
@@ -36,133 +38,165 @@ if (cart_items) {
         console.log("tbody:", tBody)
         console.log("modal--product--list:")
 
-    })}
+    })
+}
 
 
-     // Shopping cart total
+// Shopping cart total
 
-     const total = cart_items.reduce((accumulador, item) => accumulador + Number(item.price), 0)
+const total = cart_items.reduce((accumulador, item) => accumulador + Number(item.price), 0)
 
-     const cart__total = document.querySelector(".cart__total").innerText = total;
+const cart__total = document.querySelector(".cart__total").innerText = total;
 
-     console.log("total", total)
+console.log("total", total)
 
-     // Delete a shopping cart item
 
-     const deleteButtons = document.querySelectorAll(".delete-div");
+// Delete a shopping cart item
 
-     deleteButtons.forEach(button => {
-         button.addEventListener("click", (e) => {
-             e.preventDefault();
 
-             const product_id = e.target.closest('tr').querySelector(".product_id").innerText; // Obtener la descripción del producto desde la fila
+document.querySelector("#cart-table")?.addEventListener("click", (e) => {
+    if (e.target.closest(".delete-item")) {
+        e.preventDefault();
+        console.log("Botón delete-item clicado:", e.target);
+        const row = e.target.closest('tr');
+        const productId = row.querySelector(".product_id")?.innerText.trim();
+        const size = row.querySelector(".size")?.innerText.trim();
+        console.log("sizeeeeeeee:", size);
+        // Obtener los items del localStorage
 
-             console.log("product:", product_description);
-             // Obtener los items del localStorage
-             const storedItems = localStorage.getItem("items");
-             const cart_items = storedItems ? JSON.parse(storedItems) : [];
 
-             // Filtrar el item a eliminar
-             const updatedItems = cart_items.filter(
-                 (item) => item.id !== product_id
-             );
+        if (!productId || !size) {
+            console.error("No se encontraron productId o size en la fila");
+            return;
+        }
 
-             console.log("para eliminar:", updatedItems);
+        if (!confirm(`¿Seguro que deseas eliminar el producto ${productId} (talla: ${size})?`)) {
+            return;
+        }
 
-             // Guardar los nuevos items
-             localStorage.setItem("items", JSON.stringify(updatedItems));
+        let cart_items = [];
+        try {
+            const storedItems = localStorage.getItem("items");
+            cart_items = storedItems ? JSON.parse(storedItems) : [];
+        } catch (error) {
+            console.error("Error al parsear items de localStorage:", error);
+            return;
+        }
 
-             // Opcional: recargar o actualizar la UI
-             location.reload(); // Para actualizar la vista si es necesario
-         });
-     });
+        // Filtrar el item a eliminar
+        const updatedItems = cart_items.filter(
+            (item) => !(item.id === productId && item.size === size)
+        );
 
-     // Modified product quantity in the shopping cart
+        console.log("para eliminar:", updatedItems);
 
-     const addQuantityButtons = document.querySelectorAll(".add-button");
+        // Guardar los nuevos items
+        localStorage.setItem("items", JSON.stringify(updatedItems));
 
-     addQuantityButtons.forEach(button => {
-         button.addEventListener("click", (e) => {
-             e.preventDefault();
+        // Opcional: recargar o actualizar la UI
+        row.remove();
+    };
+});
 
-             const product_id = e.target.closest('tr').querySelector(".product_id").innerText; // Obtener la descripción del producto desde la fila
 
-            //  console.log("quantity:", quantity);
+// Modified product quantity in the shopping cart
 
-             // Obtener los items del localStorage
-             const storedItems = localStorage.getItem("items");
-             const cart_items = storedItems ? JSON.parse(storedItems) : [];
+const addQuantityButtons = document.querySelectorAll(".add-button");
+console.log("Botones encontrados:", deleteButtons.length, deleteButtons);
 
-             // Filtrar el item a eliminar
-             const updatedItems = cart_items.map(item => {
-                 if (item.id === product_id) {
-                     const newPrice = Number(item.price / item.quantity)
-                     const newQuantity = Number(item.quantity) + 1;
+addQuantityButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
 
-                     return {
-                         ...item,
-                         quantity: newQuantity,
-                         price: Number(newPrice) * newQuantity // Ojo, necesitas guardar `unitPrice` por separado
+        const product_id = e.target.closest('tr').querySelector(".product_id").innerText; // Obtener la descripción del producto desde la fila
 
-                     };
-                 }
-                 return item;
-             });
+        //  console.log("quantity:", quantity);
 
-             console.log("para eliminar:", updatedItems);
+        // Obtener los items del localStorage
+        const storedItems = localStorage.getItem("items");
+        const cart_items = storedItems ? JSON.parse(storedItems) : [];
 
-             // Guardar los nuevos items
-             localStorage.setItem("items", JSON.stringify(updatedItems));
+        // Filtrar el item a eliminar
+        const updatedItems = cart_items.map(item => {
+            if (item.id === product_id) {
+                const newPrice = Number(item.price / item.quantity)
+                const newQuantity = Number(item.quantity) + 1;
 
-             // Opcional: recargar o actualizar la UI
-             location.reload(); // Para actualizar la vista si es necesario
-         });
-     });
+                return {
+                    ...item,
+                    quantity: newQuantity,
+                    price: Number(newPrice) * newQuantity // Ojo, necesitas guardar `unitPrice` por separado
 
-     // Reduce quantity in shopping car
+                };
+            }
+            return item;
+        });
 
-     const restQuantityButtons = document.querySelectorAll(".reduce-button");
+        console.log("para eliminar:", updatedItems);
 
-     restQuantityButtons.forEach(button => {
-         button.addEventListener("click", (e) => {
-             e.preventDefault();
+        // Guardar los nuevos items
+        localStorage.setItem("items", JSON.stringify(updatedItems));
 
-             const product_id = e.target.closest('tr').querySelector(".product_id").innerText; // Obtener la descripción del producto desde la fila
+        // Opcional: recargar o actualizar la UI
+        location.reload(); // Para actualizar la vista si es necesario
+    });
+});
 
-            //  console.log("quantity:", quantity);
+// Reduce quantity in shopping cart
 
-             // Obtener los items del localStorage
-             const storedItems = localStorage.getItem("items");
-             const cart_items = storedItems ? JSON.parse(storedItems) : [];
+const restQuantityButtons = document.querySelectorAll(".reduce-button");
 
-             // Filtrar el item a eliminar
-             let updatedItems = cart_items.map(item => {
-                 if (item.id === product_id) {
-                     const newPrice = Number(item.price / item.quantity)
-                     const newQuantity = Number(item.quantity) - 1;
+restQuantityButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
 
-                     return {
-                         ...item,
-                         quantity: newQuantity,
-                         price: Number(newPrice) * newQuantity
+        const product_id = e.target.closest('tr').querySelector(".product_id").innerText; // Obtener la descripción del producto desde la fila
 
-                     };
-                 }
-                 return item;
-             });
+        //  console.log("quantity:", quantity);
 
-             // Eliminar los que llegaron a 0
-             updatedItems = updatedItems.filter(item => item.quantity > 0);
+        // Obtener los items del localStorage
+        const storedItems = localStorage.getItem("items");
+        const cart_items = storedItems ? JSON.parse(storedItems) : [];
 
-             console.log("para eliminar:", updatedItems);
+        // Filtrar el item a eliminar
+        let updatedItems = cart_items.map(item => {
+            if (item.id === product_id) {
+                const newPrice = Number(item.price / item.quantity)
+                const newQuantity = Number(item.quantity) - 1;
 
-             // Guardar los nuevos items
-             localStorage.setItem("items", JSON.stringify(updatedItems));
+                return {
+                    ...item,
+                    quantity: newQuantity,
+                    price: Number(newPrice) * newQuantity
 
-             // Opcional: recargar o actualizar la UI
-             location.reload(); // Para actualizar la vista si es necesario
-         });
-     })
- 
+                };
+            }
+            return item;
+        });
+
+        // Eliminar los que llegaron a 0
+        updatedItems = updatedItems.filter(item => item.quantity > 0);
+
+        console.log("para eliminar:", updatedItems);
+
+        // Guardar los nuevos items
+        localStorage.setItem("items", JSON.stringify(updatedItems));
+
+        // Opcional: recargar o actualizar la UI
+        location.reload(); // Para actualizar la vista si es necesario
+    });
+})
+
+//Pay button
+
+payButton.addEventListener("click", () => {
+
+    if (cart_items.length === 0) {
+        alert("Your cart is empty. Add some products")
+    } else {
+        alert("Payment successful!");
+    }
+})
+
 
 

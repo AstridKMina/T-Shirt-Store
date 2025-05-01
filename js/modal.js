@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button class="add-button">+</button>
                 <button class="edit-button" disabled><i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="reduce-button">-</button>
-                <button class="delete-div"><i class="fa-solid fa-trash"></i></button>
+                <button class="delete-item"><i class="fa-solid fa-trash"></i></button>
             </td>
       `;
 
@@ -66,22 +66,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Delete a shopping cart item
 
-            const deleteButtons = document.querySelectorAll(".delete-div");
+            const deleteButtons = document.querySelectorAll(".delete-item");
 
             deleteButtons.forEach(button => {
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
 
-                    const product_id = e.target.closest('tr').querySelector(".product_id").innerText; // Obtener la descripción del producto desde la fila
-
+                    const row = e.target.closest('tr');
+                    const productId = row.querySelector(".product_id")?.innerText.trim();
+                    const size = row.querySelector(".size")?.innerText.trim();
                     console.log("product:", product_description);
                     // Obtener los items del localStorage
-                    const storedItems = localStorage.getItem("items");
-                    const cart_items = storedItems ? JSON.parse(storedItems) : [];
+
+                    let cart_items = [];
+                    try {
+                        const storedItems = localStorage.getItem("items");
+                        cart_items = storedItems ? JSON.parse(storedItems) : [];
+                    } catch (error) {
+                        console.error("Error al parsear items de localStorage:", error);
+                        return;
+                    }
 
                     // Filtrar el item a eliminar
                     const updatedItems = cart_items.filter(
-                        (item) => item.id !== product_id
+                        (item) => !(item.id === productId && item.size === size)
                     );
 
                     console.log("para eliminar:", updatedItems);
@@ -90,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     localStorage.setItem("items", JSON.stringify(updatedItems));
 
                     // Opcional: recargar o actualizar la UI
-                    location.reload(); // Para actualizar la vista si es necesario
+                    row.remove();
                 });
             });
 
